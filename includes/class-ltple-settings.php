@@ -58,7 +58,7 @@ class LTPLE_App_Google_Plus_Settings {
 			'addon_link' 	=> 'https://github.com/rafasashi/live-template-editor-app-google-plus',
 			'addon_name' 	=> 'live-template-editor-app-google-plus',
 			'source_url' 	=> 'https://github.com/rafasashi/live-template-editor-app-google-plus/archive/master.zip',
-			'description'	=> 'Wordpress.com API integrator for Live Template Editor',
+			'description'	=> 'Google Plus API integrator for Live Template Editor',
 			'author' 		=> 'Rafasashi',
 			'author_link' 	=> 'https://profiles.wordpress.org/rafasashi/',
 		);		
@@ -69,39 +69,7 @@ class LTPLE_App_Google_Plus_Settings {
 	 * @return array Fields to be displayed on settings page
 	 */
 	public function settings_fields () {
-		
-		$settings = [];
-		
-		$settings['google-plus'] = array(
-			'title'					=> __( 'Google Plus', $this->plugin->slug ),
-			'description'			=> __( 'Main Wordpress.com API settings', $this->plugin->slug ),
-			'fields'				=> array(
-				array(
-					'id' 			=> 'wpcom_main_account',
-					'label'			=> __( 'Main account' , $this->plugin->slug ),
-					'description'	=> 'Main connected Google Plus account',
-					'type'			=> 'dropdown_main_apps',
-					'app'			=> 'google-plus',
-				)			
-			)
-		);		
-		
-		if( !empty($settings) ){
-		
-			foreach( $settings as $slug => $data ){
-				
-				if( isset($this->parent->settings->settings[$slug]['fields']) && !empty($data['fields']) ){
-					
-					$fields = $this->parent->settings->settings[$slug]['fields'];
-					
-					$this->parent->settings->settings[$slug]['fields'] = array_merge($fields,$data['fields']);
-				}
-				else{
-					
-					$this->parent->settings->settings[$slug] = $data;
-				}
-			}
-		}
+
 	}
 	
 	/**
